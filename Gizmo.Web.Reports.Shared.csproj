@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Gizmo.Shared\Gizmo.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
