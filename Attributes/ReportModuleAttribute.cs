@@ -26,11 +26,11 @@ namespace Gizmo.Web.Reports
         public Guid Guid => _guid;
 
         /// <summary>
-        /// Indicated that report supports range filtering.
+        /// Indicates that report supports range filtering.
         /// </summary>
         /// <remarks>
         /// The default value is true.
         /// </remarks>
-        public bool SupportRangeFilter { get; set; } = true;
+        public bool SupportsRangeFilter { get; set; } = true;
     }
 }
