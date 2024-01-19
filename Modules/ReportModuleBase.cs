@@ -25,6 +25,6 @@ namespace Gizmo.Web.Reports
         /// </remarks>
         protected TReportFilter FilterConcrete => _filterModel;
 
-        public abstract Task<object> GenerateReportAsync(ReportRangeFilter reportRangeFilter, CancellationToken cancellationToken = default);
+        public abstract Task<ReportResult> GenerateReportAsync(ReportRangeFilter reportRangeFilter, CancellationToken cancellationToken = default);
     }
 }

@@ -19,7 +19,7 @@ namespace Gizmo.Web.Reports
         /// Parameter <paramref name="reportRangeFilter"/> will be equal to <see cref="ReportRangeFilter.None"/> in case report module have indicated that it does not support range in their filter.<br></br>
         /// The returned report model will be passed to the reports visual component in view data parameters.
         /// </remarks>
-        Task<object> GenerateReportAsync(ReportRangeFilter reportRangeFilter, CancellationToken cancellationToken = default);
+        Task<ReportResult> GenerateReportAsync(ReportRangeFilter reportRangeFilter, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets filter model.
