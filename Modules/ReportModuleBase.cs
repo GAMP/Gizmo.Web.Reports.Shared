@@ -8,7 +8,9 @@ namespace Gizmo.Web.Reports
     /// <summary>
     /// Base report module implementation.
     /// </summary>
-    public abstract class ReportModuleBase<TReportFilter, TReportComponentType> : IReportModule where TReportFilter : IReportFilter, new() where TReportComponentType : Microsoft.AspNetCore.Components.IComponent
+    public abstract class ReportModuleBase<TReportFilter, TReportComponentType> : IReportModule 
+        where TReportFilter : IReportFilter, new() 
+        where TReportComponentType : Microsoft.AspNetCore.Components.IComponent
     {
         public ReportModuleBase(ILogger logger, IServiceProvider serviceProvider)
         {
