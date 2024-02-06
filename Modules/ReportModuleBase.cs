@@ -51,5 +51,16 @@ namespace Gizmo.Web.Reports
         public abstract Task<ReportResult<TReportModel,TReportModelAdditional>> GenerateReportAsync(ReportRangeFilter reportRangeFilter, CancellationToken cancellationToken = default);
 
         async Task<IReportResult> IReportModule.GenerateReportAsync(ReportRangeFilter reportRangeFilter, CancellationToken cancellationToken) => await GenerateReportAsync(reportRangeFilter, cancellationToken);
+
+        /// <summary>
+        /// Creates result.
+        /// </summary>
+        /// <param name="model">Report model.</param>
+        /// <param name="reportAdditionalModel">Additional report model.</param>
+        /// <returns></returns>
+        protected ReportResult<TReportModel,TReportModelAdditional> CreateResult(TReportModel model, TReportModelAdditional? reportAdditionalModel = null)
+        {
+            return new ReportResult<TReportModel, TReportModelAdditional>(model, reportAdditionalModel);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
 namespace Gizmo.Web.Reports.Components
@@ -7,13 +8,13 @@ namespace Gizmo.Web.Reports.Components
     /// Optional base class to use with report components.
     /// </summary>
     /// <typeparam name="TModel">Report model type.</typeparam>
-    public abstract class ReportComponentBase<TModel> : ComponentBase
+    public abstract class ReportComponentBase<TModel> : ComponentBase where TModel : class, new()
     {
         /// <summary>
         /// Gets component report model.
         /// </summary>
         [Parameter()]
-        public TModel Model { get; set; } = default!;
+        public TModel Model { get; set; } = null!;
 
         /// <summary>
         /// Gets unmatched parameters values.
@@ -23,5 +24,12 @@ namespace Gizmo.Web.Reports.Components
         {
             get; set;
         } = [];
+
+        protected override Task OnParametersSetAsync()
+        {
+            Model ??= new();
+
+            return base.OnParametersSetAsync();
+        }
     }
 }
