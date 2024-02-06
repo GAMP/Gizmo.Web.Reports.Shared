@@ -2,6 +2,14 @@
 {
     public interface IReportResult
     {
-        IReportModel ReportModel { get; }
+        /// <summary>
+        /// Gets report model.
+        /// </summary>
+        object ReportModel { get; }
+
+        /// <summary>
+        /// Gets additional report model.
+        /// </summary>
+        object? ReportModelAdditional { get; }
     }
 }
