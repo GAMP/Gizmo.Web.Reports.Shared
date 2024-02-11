@@ -8,8 +8,8 @@ namespace Gizmo.Web.Reports
     /// <summary>
     /// Base report module implementation.
     /// </summary>
-    public abstract class ReportModuleBase<TReportFilter,TReportModel,TReportModelAdditional, TReportComponentType> : IReportModule 
-        where TReportFilter : IReportFilter, new() 
+    public abstract class ReportModuleBase<TReportFilter, TReportModel, TReportModelAdditional, TReportComponentType> : IReportModule
+        where TReportFilter : IReportFilter, new()
         where TReportComponentType : Microsoft.AspNetCore.Components.IComponent
         where TReportModel : class
         where TReportModelAdditional : class
@@ -35,8 +35,14 @@ namespace Gizmo.Web.Reports
 
         public Type ReportModelAddtionalType => _reportModelAdditionalType;
 
+        /// <summary>
+        /// Gets service provider.
+        /// </summary>
         protected IServiceProvider ServiceProvider => _serviceProvider;
 
+        /// <summary>
+        /// Gets logger.
+        /// </summary>
         protected ILogger Logger => _logger;
 
         /// <summary>
@@ -48,7 +54,8 @@ namespace Gizmo.Web.Reports
         /// </remarks>
         protected TReportFilter Filter => _filterModel;
 
-        public abstract Task<ReportResult<TReportModel,TReportModelAdditional>> GenerateReportAsync(ReportRangeFilter reportRangeFilter, CancellationToken cancellationToken = default);
+        /// <inheritdoc cref="IReportModule.GenerateReportAsync(ReportRangeFilter, CancellationToken)"/>
+        public abstract Task<ReportResult<TReportModel, TReportModelAdditional>> GenerateReportAsync(ReportRangeFilter reportRangeFilter, CancellationToken cancellationToken = default);
 
         async Task<IReportResult> IReportModule.GenerateReportAsync(ReportRangeFilter reportRangeFilter, CancellationToken cancellationToken) => await GenerateReportAsync(reportRangeFilter, cancellationToken);
 
@@ -57,8 +64,8 @@ namespace Gizmo.Web.Reports
         /// </summary>
         /// <param name="model">Report model.</param>
         /// <param name="reportAdditionalModel">Additional report model.</param>
-        /// <returns></returns>
-        protected ReportResult<TReportModel,TReportModelAdditional> CreateResult(TReportModel model, TReportModelAdditional? reportAdditionalModel = null)
+        /// <returns>Report result model.</returns>
+        protected ReportResult<TReportModel, TReportModelAdditional> CreateResult(TReportModel model, TReportModelAdditional? reportAdditionalModel = null)
         {
             return new ReportResult<TReportModel, TReportModelAdditional>(model, reportAdditionalModel);
         }

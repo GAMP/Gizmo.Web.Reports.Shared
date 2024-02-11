@@ -1,7 +1,7 @@
 ﻿namespace Gizmo.Web.Reports
 {
     /// <summary>
-    /// Represents report filter model.
+    /// Report filter.
     /// </summary>
     public interface IReportFilter
     {

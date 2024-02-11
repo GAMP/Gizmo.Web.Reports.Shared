@@ -5,7 +5,7 @@ using System;
 namespace Gizmo.Web.Reports
 {
     /// <summary>
-    /// Report module interface.
+    /// Report module.
     /// </summary>
     public interface IReportModule
     {

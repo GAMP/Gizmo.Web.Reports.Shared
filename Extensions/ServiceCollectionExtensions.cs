@@ -40,5 +40,39 @@ namespace Gizmo.Web.Reports
 
             return services;
         }
+
+        /// <summary>
+        /// Adds reports.
+        /// </summary>
+        /// <param name="services">Service collection.</param>
+        /// <returns>Service collection.</returns>
+        public static IServiceCollection AddReports(this IServiceCollection services)
+        {
+            Assembly.Load("Gizmo.Web.Reports");
+
+            //use all currently loaded assemblies
+            //at this stage any external assemblies should be already loaded into app domain
+            var assembiles = AppDomain.CurrentDomain.GetAssemblies();
+
+            //get all types representing IReport module and have report attribute applied
+            var reportModuleTypes = assembiles.SelectMany(assembly => assembly.GetTypes()
+            .Where(type => type.GetCustomAttributes<ReportModuleAttribute>().Any())
+            .Where(type => !type.IsAbstract && type.GetInterfaces().Contains(typeof(IReportModule)))
+            .ToList());
+
+            foreach (var reportType in reportModuleTypes)
+            {
+                //get and check report attribute
+                var reportAttribute = reportType.GetCustomAttribute<ReportModuleAttribute>();
+                if (reportAttribute == null)
+                    continue;
+
+                services.AddSingleton(reportType);
+                services.AddSingleton(sp => (IReportModule)sp.GetRequiredService(reportType));
+                services.AddKeyedSingleton(reportAttribute.Guid.ToString(), (sp, key) => (IReportModule)sp.GetRequiredService(reportType));
+            }
+
+            return services;
+        }
     }
 }
