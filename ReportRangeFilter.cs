@@ -24,11 +24,11 @@ namespace Gizmo.Web.Reports
         /// <summary>
         /// Report range start.
         /// </summary>
-        public DateTime? Start { get; init; }
+        public DateTime? Start { get; set; }
 
         /// <summary>
         /// Report range end.
         /// </summary>
-        public DateTime? End { get; init; }
+        public DateTime? End { get; set; }
     }
 }
