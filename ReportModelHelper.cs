@@ -99,14 +99,19 @@ namespace Gizmo.Web.Reports
 
         public static bool SetDefaultValue(IReportFilter reportFilter, PropertyInfo propertyInfo)
         {
+            //set to null if property supports it
+            if (Nullable.GetUnderlyingType(propertyInfo.PropertyType!) != null)
+            {
+                propertyInfo.SetValue(reportFilter, null);
+            }
+
+            //set any default value that is specified by attribute
             var defaultValueAttribute = propertyInfo.GetCustomAttribute<DefaultValueAttribute>();
             if (defaultValueAttribute != null)
             {
-                //TODO : check if property is nullable
-
                 propertyInfo.SetValue(reportFilter, defaultValueAttribute.Value);
                 return true;
-            }
+            }          
 
             return false;
         }
