@@ -166,6 +166,16 @@ namespace Gizmo.Web.Reports
         }
 
         /// <summary>
+        /// Gets filter values represented in JSON format.
+        /// </summary>
+        /// <param name="filters">Filter instance.</param>
+        /// <returns>Key/Value JSON serialized filters.</returns>
+        public static string GetFilterValuesJson(IDictionary<string,object?> filters)
+        {
+            return JsonSerializer.Serialize(filters);
+        }
+
+        /// <summary>
         /// Returns parsed filter values.
         /// </summary>
         /// <param name="filterType">Report filter object type.</param>
