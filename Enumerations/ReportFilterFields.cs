@@ -5,10 +5,34 @@
     /// </summary>
     public enum ReportFilterFields
     {
+        /// <summary>
+        /// Custom field.
+        /// </summary>
         Custom = 0,
+
+        /// <summary>
+        /// User.
+        /// </summary>
         User = 1,
+
+        /// <summary>
+        /// Operator.
+        /// </summary>
         Operator = 2,
+
+        /// <summary>
+        /// Register.
+        /// </summary>
         Register = 3,
+
+        /// <summary>
+        /// Host group.
+        /// </summary>
         HostGroup = 4,
+
+        /// <summary>
+        /// Branch.
+        /// </summary>
+        Branch = 5,
     }
 }
