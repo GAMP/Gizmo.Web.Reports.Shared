@@ -9,8 +9,6 @@ namespace Gizmo.Web.Reports
     /// </summary>
     public sealed class ReportExportMetadata
     {
-        public ReportExportMetadata() { }
-
         /// <summary>
         /// Gets exporting user username.
         /// </summary>
@@ -59,6 +57,14 @@ namespace Gizmo.Web.Reports
         public string? PresetName
         {
             get; init;
+        }
+
+        /// <summary>
+        /// Gets optional preset range name.
+        /// </summary>
+        public string? PresetRangeName
+        {
+            get;init;
         }
 
         /// <summary>
