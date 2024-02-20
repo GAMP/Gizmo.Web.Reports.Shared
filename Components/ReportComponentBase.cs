@@ -23,7 +23,7 @@ namespace Gizmo.Web.Reports.Components
         /// Currently this parameter will only be set when rendering reports on server.
         /// </remarks>
         [Parameter()]
-        public ReportExportMetadata? ExportMetdata { get; set; }
+        public ReportExportMetadata? ExportMetadata { get; set; }
 
         /// <summary>
         /// Gets unmatched parameters values.
