@@ -8,5 +8,6 @@
         public const string ReportModel = "Model";
         public const string ReportAdditionalModel = "AdditionalModel";
         public const string ReportHostState = "State";
+        public const string ReportExportMetadata = "ExportMetadata";
     }
 }
