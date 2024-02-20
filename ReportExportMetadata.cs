@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Gizmo.Web.Reports
 {
+    /// <summary>
+    /// Report export metadata.
+    /// </summary>
     public sealed class ReportExportMetadata
     {
         public ReportExportMetadata() { }
@@ -11,14 +14,20 @@ namespace Gizmo.Web.Reports
         /// <summary>
         /// Gets exporting user username.
         /// </summary>
-        public string ExporterUserName
+        /// <remarks>
+        /// This value will be null when export is done by the system.
+        /// </remarks>
+        public string? ExporterUserName
         {
             get; init;
-        } = string.Empty;
+        }
 
         /// <summary>
         /// Gets exporting user first name.
         /// </summary>
+        /// <remarks>
+        /// This value will be null when export is done by the system or not set for the user.
+        /// </remarks>
         public string? ExporterFirstName
         {
             get; init;
@@ -27,6 +36,9 @@ namespace Gizmo.Web.Reports
         /// <summary>
         /// Gets exporting user last name.
         /// </summary>
+        /// <remarks>
+        /// This value will be null when export is done by the system or not set for the user.
+        /// </remarks>
         public string? ExporterLastName
         {
             get; init;

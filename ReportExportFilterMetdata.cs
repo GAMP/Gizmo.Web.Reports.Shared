@@ -9,6 +9,14 @@ namespace Gizmo.Web.Reports
     public sealed class ReportExportFilterMetdata
     {
         /// <summary>
+        /// Gets filter name.
+        /// </summary>
+        /// <remarks>
+        /// This will be equal to licalized filter name or filter property name if localization attributes are not set on the filter.
+        /// </remarks>
+        public string Name { get; init; } = string.Empty;
+
+        /// <summary>
         /// Gets filter values.
         /// </summary>
         public IEnumerable<string> Values { get; init; } = Enumerable.Empty<string>();
