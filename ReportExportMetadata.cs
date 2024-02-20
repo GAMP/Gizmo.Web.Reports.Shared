@@ -76,18 +76,18 @@ namespace Gizmo.Web.Reports
         }
 
         /// <summary>
-        /// Gets report start date.
+        /// Gets optional report start date.
         /// </summary>
-        public DateTime DateFrom
+        public DateTime? DateFrom
         {
             get;
             init;
         }
 
         /// <summary>
-        /// Gets report end date.
+        /// Gets optional report end date.
         /// </summary>
-        public DateTime DateTo
+        public DateTime? DateTo
         {
             get; init;
         }
