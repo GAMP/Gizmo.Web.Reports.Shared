@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Gizmo.Web.Reports.Shared
+namespace Gizmo.Web.Reports
 {
     public sealed class ReportExportMetadata
     {

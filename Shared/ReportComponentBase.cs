@@ -17,6 +17,15 @@ namespace Gizmo.Web.Reports.Components
         public TModel Model { get; set; } = null!;
 
         /// <summary>
+        /// Gets export metadata.
+        /// </summary>
+        /// <remarks>
+        /// Currently this parameter will only be set when rendering reports on server.
+        /// </remarks>
+        [Parameter()]
+        public ReportExportMetadata? ExportMetdata { get; set; }
+
+        /// <summary>
         /// Gets unmatched parameters values.
         /// </summary>
         [Parameter(CaptureUnmatchedValues = true)]
