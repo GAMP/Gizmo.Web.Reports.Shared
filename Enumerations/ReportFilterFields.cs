@@ -34,5 +34,20 @@
         /// Branch.
         /// </summary>
         Branch = 5,
+
+        /// <summary>
+        /// Product.
+        /// </summary>
+        Product = 6,
+
+        /// <summary>
+        /// Host.
+        /// </summary>
+        Host = 7,
+
+        /// <summary>
+        /// Application.
+        /// </summary>
+        Application = 8,
     }
 }
