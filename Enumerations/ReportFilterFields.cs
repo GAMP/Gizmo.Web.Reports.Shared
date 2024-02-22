@@ -49,5 +49,15 @@
         /// Application.
         /// </summary>
         Application = 8,
+
+        /// <summary>
+        /// Asset Type.
+        /// </summary>
+        AssetType = 9,
+
+        /// <summary>
+        /// Asset.
+        /// </summary>
+        Asset = 10,
     }
 }
