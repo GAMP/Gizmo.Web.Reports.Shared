@@ -6,7 +6,7 @@ namespace Gizmo.Web.Reports
     /// Identifies report modules.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    public class ReportModuleAttribute : Attribute 
+    public class ReportModuleAttribute : Attribute
     {
         /// <summary>
         /// Creates new instance.
@@ -18,7 +18,8 @@ namespace Gizmo.Web.Reports
             _guid = Guid.Parse(guid);
         }
 
-         private readonly Guid _guid;
+        private readonly Guid _guid;
+        private readonly bool _hidden;
 
         /// <summary>
         /// Report unique guid.
@@ -32,5 +33,10 @@ namespace Gizmo.Web.Reports
         /// The default value is true.
         /// </remarks>
         public bool SupportsRangeFilter { get; set; } = true;
+
+        /// <summary>
+        /// Indicates that report is hidden from user.
+        /// </summary>
+        public bool Hidden { get; set; } = false;
     }
 }

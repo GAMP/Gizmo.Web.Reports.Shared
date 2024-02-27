@@ -5,13 +5,13 @@ namespace Gizmo.Web.Reports
     /// <summary>
     /// This attribute must be used on any property present in the filter model that will be used for filtering.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property,AllowMultiple =false)]
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public sealed class ReportFilterFieldAttribute : Attribute
     {
         /// <summary>
         /// Creates new instance.
         /// </summary>
-        public ReportFilterFieldAttribute() 
+        public ReportFilterFieldAttribute()
         {
             Field = ReportFilterFields.Custom;
         }
@@ -33,5 +33,10 @@ namespace Gizmo.Web.Reports
         /// Default value is equal to <see cref="ReportFilterFields.Custom"/>
         /// </remarks>
         public ReportFilterFields Field { get; init; } = ReportFilterFields.Custom;
+
+        /// <summary>
+        /// Specifies if filter is hidden from user.
+        /// </summary>
+        public bool Hidden { get; set; } = false;
     }
 }
