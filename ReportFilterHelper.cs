@@ -10,7 +10,10 @@ using System.Linq;
 
 namespace Gizmo.Web.Reports
 {
-    public static class ReportModelHelper
+    /// <summary>
+    /// Helper class for working with report filter models.
+    /// </summary>
+    public static class ReportFilterHelper
     {
         private static readonly ConcurrentDictionary<Type, IEnumerable<PropertyInfo>> TypeCache = new();
         private static readonly Predicate<PropertyInfo> PropertyFilter = (p) => { return p.GetCustomAttribute<ReportFilterFieldAttribute>() != null; };
