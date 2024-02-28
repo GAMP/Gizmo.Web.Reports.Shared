@@ -19,11 +19,8 @@ namespace Gizmo.Web.Reports.Components
         /// <summary>
         /// Gets export metadata.
         /// </summary>
-        /// <remarks>
-        /// Currently this parameter will only be set when rendering reports on server.
-        /// </remarks>
         [Parameter()]
-        public ReportExportMetadata? ExportMetadata { get; set; }
+        public ReportExportMetadata ExportMetadata { get; set; } = null!;
 
         /// <summary>
         /// Gets unmatched parameters values.
