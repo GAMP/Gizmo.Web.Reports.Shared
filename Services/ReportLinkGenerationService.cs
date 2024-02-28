@@ -45,7 +45,7 @@ namespace Gizmo.Web.Reports.Services
         /// <remarks>
         /// URI is always generated based on currently location.
         /// </remarks>
-        public string CreateReportUri(string reportId, IEnumerable<KeyValuePair<string, string>> parameters)
+        public string CreateReportUri(string reportId, IEnumerable<KeyValuePair<string, string?>> parameters)
         {
             var uriBuilder = new UriBuilder(_navigationManager.Uri)
             {

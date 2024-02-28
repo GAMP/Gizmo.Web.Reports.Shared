@@ -69,6 +69,22 @@ namespace Gizmo.Web.Reports
             return filterProperties.ToDictionary(p => p.Name, p => p.GetValue(reportFilter));
         }
 
+        /// <summary>
+        /// Gets filter values represented as strings.
+        /// </summary>
+        /// <param name="reportFilter">Report filter.</param>
+        /// <returns>Filter string values.</returns>
+        /// <remarks>
+        /// If filter value is equal to null it will not be included.
+        /// </remarks>
+        public static IEnumerable<KeyValuePair<string, string>> GetFilterStringNonNullValues(IReportFilter reportFilter)
+        {
+            var filterValues = GetFilterValues(reportFilter);
+            return filterValues
+                .Where(fv => fv.Value != null)
+                .Select(fv => new KeyValuePair<string, string>(fv.Key, fv.Value!.ToString()!));
+        }
+
         public static TValue? GetFilterValue<TValue>(IReportFilter reportFilter, PropertyInfo filterProperty)
         {
             var value = (TValue?)filterProperty.GetValue(reportFilter);
@@ -111,7 +127,7 @@ namespace Gizmo.Web.Reports
             {
                 propertyInfo.SetValue(reportFilter, defaultValueAttribute.Value);
                 return true;
-            }          
+            }
 
             return false;
         }
@@ -170,7 +186,7 @@ namespace Gizmo.Web.Reports
         /// </summary>
         /// <param name="filters">Filter instance.</param>
         /// <returns>Key/Value JSON serialized filters.</returns>
-        public static string GetFilterValuesJson(IDictionary<string,object?> filters)
+        public static string GetFilterValuesJson(IDictionary<string, object?> filters)
         {
             return JsonSerializer.Serialize(filters);
         }
