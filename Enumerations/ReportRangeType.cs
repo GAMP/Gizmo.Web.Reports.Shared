@@ -12,18 +12,18 @@
         /// <summary>
         /// Daily range.
         /// </summary>
-        Daily = 1,
+        Day = 1,
         /// <summary>
         /// Weekly range.
         /// </summary>
-        Weekly = 2,
+        Week = 2,
         /// <summary>
         /// Monthly range.
         /// </summary>
-        Monthly = 3,
+        Month = 3,
         /// <summary>
         /// Yeraly range.
         /// </summary>
-        Yearly = 4,
+        Year = 4,
     }
 }
