@@ -1,12 +1,15 @@
 ﻿using System.Reflection;
 
-namespace Gizmo.Web.Reports
+namespace Gizmo.Web.Reports.Services
 {
     /// <summary>
     /// Host environment detection service.
     /// </summary>
     public sealed class HostEnvironmentService
     {
+        /// <summary>
+        /// Creates new instance.
+        /// </summary>
         public HostEnvironmentService()
         {
             if (_entryAssembly == null || _entryAssembly.FullName == null)

@@ -19,6 +19,9 @@ namespace Gizmo.Web.Reports
 
             //add host environment service
             services.TryAddSingleton<HostEnvironmentService>();
+
+            //add range generation service
+            services.TryAddSingleton<ReportRangeService>();
             return services;
         }
     }

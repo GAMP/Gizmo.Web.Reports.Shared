@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Gizmo.Web.Reports.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace Gizmo.Web.Reports.Components
