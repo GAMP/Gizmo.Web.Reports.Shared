@@ -72,21 +72,7 @@ namespace Gizmo.Web.Reports
             return filterProperties.ToDictionary(p => p.Name, p => p.GetValue(reportFilter));
         }
 
-        /// <summary>
-        /// Gets filter values represented as strings.
-        /// </summary>
-        /// <param name="reportFilter">Report filter.</param>
-        /// <returns>Filter string values.</returns>
-        /// <remarks>
-        /// If filter value is equal to null it will not be included.
-        /// </remarks>
-        public static IEnumerable<KeyValuePair<string, string>> GetFilterStringNonNullValues(IReportFilter reportFilter)
-        {
-            var filterValues = GetFilterValues(reportFilter);
-            return filterValues
-                .Where(fv => fv.Value != null)
-                .Select(fv => new KeyValuePair<string, string>(fv.Key, fv.Value!.ToString()!));
-        }
+
 
         public static TValue? GetFilterValue<TValue>(IReportFilter reportFilter, PropertyInfo filterProperty)
         {
@@ -264,6 +250,38 @@ namespace Gizmo.Web.Reports
                 }
             }
             return results;
+        }
+
+        /// <summary>
+        /// Gets filter values represented as strings.
+        /// </summary>
+        /// <param name="reportFilter">Report filter.</param>
+        /// <returns>Filter string values.</returns>
+        /// <remarks>
+        /// If filter value is equal to null it will not be included.
+        /// </remarks>
+        public static IEnumerable<KeyValuePair<string, string>> GetFilterStringValuesFromJson(Type filterType, string json)
+        {
+            var filterValues = GetFilterValuesFromJson(filterType, json);
+            return filterValues
+                .Where(fv => fv.Value != null)
+                .Select(fv => new KeyValuePair<string, string>(fv.Key, fv.Value!.ToString()!));
+        }
+
+        /// <summary>
+        /// Gets filter values represented as strings.
+        /// </summary>
+        /// <param name="reportFilter">Report filter.</param>
+        /// <returns>Filter string values.</returns>
+        /// <remarks>
+        /// If filter value is equal to null it will not be included.
+        /// </remarks>
+        public static IEnumerable<KeyValuePair<string, string>> GetFilterStringValues(IReportFilter reportFilter)
+        {
+            var filterValues = GetFilterValues(reportFilter);
+            return filterValues
+                .Where(fv => fv.Value != null)
+                .Select(fv => new KeyValuePair<string, string>(fv.Key, fv.Value!.ToString()!));
         }
     }
 }
