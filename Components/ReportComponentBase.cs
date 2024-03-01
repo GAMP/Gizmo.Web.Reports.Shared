@@ -10,6 +10,12 @@ namespace Gizmo.Web.Reports.Components
     /// <typeparam name="TModel">Report model type.</typeparam>
     public abstract class ReportComponentBase<TModel> : ComponentBase where TModel : class, new()
     {
+        [Inject()]
+        protected HostEnvironmentService HostEnvironment
+        {
+            get; set;
+        } = null!;
+
         /// <summary>
         /// Gets component report model.
         /// </summary>

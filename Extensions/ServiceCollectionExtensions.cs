@@ -16,6 +16,9 @@ namespace Gizmo.Web.Reports
             //the service must be added as scoped since it depends on NavigationManager which is scoped
             //not adding as scoped will lead to errors in WPF host
             services.TryAddScoped<ReportLinkGenerationService>();
+
+            //add host environment service
+            services.TryAddSingleton<HostEnvironmentService>();
             return services;
         }
     }
