@@ -37,6 +37,17 @@ namespace Gizmo.Web.Reports
         /// <summary>
         /// Specifies if filter is hidden from user.
         /// </summary>
-        public bool Hidden { get; set; } = false;
+        /// <remarks>
+        /// This can be used to hide any report filter parameters that should not be visible to the user.
+        /// </remarks>
+        public bool IsHidden { get; set; } = false;
+
+        /// <summary>
+        /// Specifies if filter can be set by the user.
+        /// </summary>
+        /// <remarks>
+        /// This can be used if we want to display current filter value but not allow user to set it.
+        /// </remarks>
+        public bool IsUserSettable { get; set; } = true;
     }
 }

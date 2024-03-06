@@ -19,7 +19,6 @@ namespace Gizmo.Web.Reports
         }
 
         private readonly Guid _guid;
-        private readonly bool _hidden;
 
         /// <summary>
         /// Report unique guid.
@@ -37,6 +36,6 @@ namespace Gizmo.Web.Reports
         /// <summary>
         /// Indicates that report is hidden from user.
         /// </summary>
-        public bool Hidden { get; set; } = false;
+        public bool IsHidden { get; set; } = false;
     }
 }
