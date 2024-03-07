@@ -22,6 +22,7 @@ namespace Gizmo.Web.Reports
 
             //add range generation service
             services.TryAddSingleton<ReportRangeService>();
+
             return services;
         }
     }
