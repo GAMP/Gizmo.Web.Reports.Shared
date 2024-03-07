@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Gizmo.Web.Reports
 {
@@ -60,17 +59,17 @@ namespace Gizmo.Web.Reports
         }
 
         /// <summary>
-        /// Gets optional preset range name.
+        /// Gets report range type.
         /// </summary>
-        public string? PresetRangeName
+        public ReportRangeType ReportRangeType
         {
-            get;init;
+            get;set;
         }
 
         /// <summary>
-        /// Gets export date time.
+        /// Gets optional preset range name.
         /// </summary>
-        public DateTime ExportTime
+        public string? ReportRangeTypeName
         {
             get; init;
         }
@@ -95,6 +94,14 @@ namespace Gizmo.Web.Reports
         /// <summary>
         /// Gets export filters.
         /// </summary>
-        public IEnumerable<ReportExportFilterMetdata> Filters {  get; init; } = Enumerable.Empty<ReportExportFilterMetdata>();
+        public IEnumerable<ReportExportFilterMetdata> Filters {  get; init; } = [];
+
+        /// <summary>
+        /// Gets export date time.
+        /// </summary>
+        public DateTime ExportTime
+        {
+            get; init;
+        }
     }
 }

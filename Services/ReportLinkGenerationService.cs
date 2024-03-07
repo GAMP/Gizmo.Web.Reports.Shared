@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http.Extensions;
@@ -54,6 +55,32 @@ namespace Gizmo.Web.Reports.Services
             {
                 { "reportId", reportId.ToString() },
             };
+
+            foreach (var parameter in parameters)
+            {
+                queryBuilder.Add(parameter.Key, parameter.Value);
+            }
+
+            uriBuilder.Query = queryBuilder.ToString();
+            return uriBuilder.ToString();
+        }
+
+        public string CreateReportUri(string reportId, ReportRangeType rangeType, DateTime? rangeStart, DateTime? rangeEnd, IEnumerable<KeyValuePair<string, string>> parameters)
+        {
+            var uriBuilder = new UriBuilder(_navigationManager.Uri)
+            {
+            };
+            var queryBuilder = new QueryBuilder
+            {
+                { "ReportId", reportId.ToString() },
+                { "ReportRangeType", rangeType.ToString() }
+            };
+
+            if (rangeStart != null)
+                queryBuilder.Add("RangeStart", rangeStart?.ToString());           
+
+            if (rangeEnd != null)
+                queryBuilder.Add("RangeEnd", rangeEnd?.ToString());
 
             foreach (var parameter in parameters)
             {
