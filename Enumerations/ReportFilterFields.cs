@@ -59,5 +59,10 @@
         /// Asset.
         /// </summary>
         Asset = 10,
+
+        /// <summary>
+        /// License.
+        /// </summary>
+        License = 11,
     }
 }
