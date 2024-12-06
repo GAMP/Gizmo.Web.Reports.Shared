@@ -1,7 +1,7 @@
 ﻿namespace Gizmo.Web.Reports
 {
     /// <summary>
-    /// Constants representing report component paramter names.
+    /// Constants representing report component parameter names.
     /// </summary>
     public static class ReportParameterViewNames
     {

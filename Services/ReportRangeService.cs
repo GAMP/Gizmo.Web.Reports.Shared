@@ -41,7 +41,7 @@ namespace Gizmo.Web.Reports.Services
             bool businessDayEndValid = false;
 
             //parse default business day start
-            if (!(businessDayStartValid = TimeOnly.TryParse(_businessOptions.CurrentValue.BusinessDayStart, out var buisenssDayStartTime)))
+            if (!(businessDayStartValid = TimeOnly.TryParse(_businessOptions.CurrentValue.BusinessDayStart, out var businessDayStartTime)))
                 Logger.LogWarning("Invalid business day start value : {dayTime} specified.", _businessOptions.CurrentValue.BusinessDayStart);
 
             //parse default business day end
@@ -67,7 +67,7 @@ namespace Gizmo.Web.Reports.Services
                     dateOnlyStart = dateOnlyStart.AddDays(dayDifference);
                     break;
                 case Reports.ReportRangeType.Month:
-                    //when using montly we dont care about business start weekday, should always start from start of month
+                    //when using monthly we dont care about business start weekday, should always start from start of month
                     dateOnlyStart = new DateOnly(dateOnlyStart.Year, dateOnlyStart.Month, 1);
                     break;
                 case Reports.ReportRangeType.Year:
@@ -79,15 +79,15 @@ namespace Gizmo.Web.Reports.Services
             }
 
             //create range start date/time, it will be equal to the date only start and optionally will add a business day start time
-            rangeStart = new DateTime(dateOnlyStart, businessDayStartValid ? buisenssDayStartTime : TimeOnly.MinValue);
+            rangeStart = new DateTime(dateOnlyStart, businessDayStartValid ? businessDayStartTime : TimeOnly.MinValue);
 
             int rangeTotalDays = 0;
             switch (rangeType)
             {
                 case Reports.ReportRangeType.Day:
-                    //if business day starts after busieness day end then we need to rol over to next day
+                    //if business day starts after business day end then we need to rol over to next day
                     //otherwise the range is represented within same day
-                    rangeTotalDays = businessDayStartValid ? (buisenssDayStartTime > businessDayEndTime ? 1 : 0) : 1;
+                    rangeTotalDays = businessDayStartValid ? (businessDayStartTime > businessDayEndTime ? 1 : 0) : 1;
                     break;
                 case Reports.ReportRangeType.Week:
                     rangeTotalDays = 7;

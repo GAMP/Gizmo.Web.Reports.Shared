@@ -33,7 +33,7 @@ namespace Gizmo.Web.Reports
 
         public Type ReportModelType => _reportModelType;
 
-        public Type ReportModelAddtionalType => _reportModelAdditionalType;
+        public Type ReportModelAdditionalType => _reportModelAdditionalType;
 
         /// <summary>
         /// Gets service provider.

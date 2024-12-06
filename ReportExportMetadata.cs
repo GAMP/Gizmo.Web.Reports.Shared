@@ -94,7 +94,7 @@ namespace Gizmo.Web.Reports
         /// <summary>
         /// Gets export filters.
         /// </summary>
-        public IEnumerable<ReportExportFilterMetdata> Filters {  get; init; } = [];
+        public IEnumerable<ReportExportFilterMetadata> Filters {  get; init; } = [];
 
         /// <summary>
         /// Gets export date time.

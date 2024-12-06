@@ -39,6 +39,6 @@ namespace Gizmo.Web.Reports
         /// <summary>
         /// Gets report model additional type.
         /// </summary>
-        public Type ReportModelAddtionalType { get; }
+        public Type ReportModelAdditionalType { get; }
     }
 }

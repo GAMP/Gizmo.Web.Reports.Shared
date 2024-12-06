@@ -3,15 +3,15 @@
 namespace Gizmo.Web.Reports
 {
     /// <summary>
-    /// Report export filter metdata.
+    /// Report export filter metadata.
     /// </summary>
-    public sealed class ReportExportFilterMetdata
+    public sealed class ReportExportFilterMetadata
     {
         /// <summary>
         /// Gets filter name.
         /// </summary>
         /// <remarks>
-        /// This will be equal to licalized filter name or filter property name if localization attributes are not set.
+        /// This will be equal to localized filter name or filter property name if localization attributes are not set.
         /// </remarks>
         public string DisplayName { get; init; } = string.Empty;
 
