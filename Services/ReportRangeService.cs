@@ -106,7 +106,7 @@ namespace Gizmo.Web.Reports.Services
             rangeEnd = rangeStart.AddDays(rangeTotalDays);
 
             //add end time to range end
-            rangeEnd = new DateTime(DateOnly.FromDateTime(rangeEnd), businessDayEndTime);
+            rangeEnd = new DateTime(DateOnly.FromDateTime(rangeEnd), businessDayEndTime, DateTimeKind.Unspecified);
         }
     }
 }
