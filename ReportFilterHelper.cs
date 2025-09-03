@@ -57,7 +57,6 @@ namespace Gizmo.Web.Reports
                         SetDefaultValue(reportFilter, filterProperty);
                 }
             }
-
         }
 
         /// <summary>
@@ -71,8 +70,6 @@ namespace Gizmo.Web.Reports
             var filterProperties = GetFilterProperties(filterType);
             return filterProperties.ToDictionary(p => p.Name, p => p.GetValue(reportFilter));
         }
-
-
 
         public static TValue? GetFilterValue<TValue>(IReportFilter reportFilter, PropertyInfo filterProperty)
         {
