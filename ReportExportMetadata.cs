@@ -6,6 +6,9 @@ namespace Gizmo.Web.Reports
     /// <summary>
     /// Report export metadata.
     /// </summary>
+    /// <remarks>
+    /// This class contains metadata that can be use when rendering an report.
+    /// </remarks>
     public sealed class ReportExportMetadata
     {
         /// <summary>

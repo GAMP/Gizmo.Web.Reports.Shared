@@ -26,6 +26,6 @@ namespace Gizmo.Web.Reports
         /// <remarks>
         /// The Key will represents the selected value (id,guid etc), the value represents display value.
         /// </remarks>
-        public IEnumerable<KeyValuePair<string,string>> Values { get; init; } = [];
+        public IEnumerable<KeyValuePair<string, string>> Values { get; init; } = [];
     }
 }

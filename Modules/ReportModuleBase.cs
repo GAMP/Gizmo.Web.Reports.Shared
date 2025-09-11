@@ -8,6 +8,14 @@ namespace Gizmo.Web.Reports
     /// <summary>
     /// Base report module implementation.
     /// </summary>
+    /// <remarks>
+    /// Each module can have concrete optional filter model <see cref="Filter"/>, this model is a set of filters that can be applied for the specific module.<br></br>
+    /// <b>When module does not have any additional filters <see cref="Filter"/> value will be equal to <see cref="EmptyReportFilter"/>.</b><br></br><br></br>
+    /// <b>
+    /// The distinction should be clear between <see cref="Filter"/> and <see cref="GenerateReportAsync(ReportRangeFilter, CancellationToken)"/> method range filter, those two filter serve a different purpose.
+    /// Range filter simply specify the filtering range while <see cref="Filter"/> specifies additional filters such as user id, transaction id etc.
+    /// </b>
+    /// </remarks>
     public abstract class ReportModuleBase<TReportFilter, TReportModel, TReportModelAdditional, TReportComponentType> : IReportModule
         where TReportFilter : IReportFilter, new()
         where TReportComponentType : Microsoft.AspNetCore.Components.IComponent
