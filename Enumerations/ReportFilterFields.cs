@@ -64,5 +64,10 @@
         /// License.
         /// </summary>
         License = 11,
+
+        /// <summary>
+        /// User group.
+        /// </summary>
+        UserGroup = 12,
     }
 }
