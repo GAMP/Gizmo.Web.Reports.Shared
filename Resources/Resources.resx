@@ -120,7 +120,7 @@
   <data name="REPORT_RANGE_TYPE_CURRENT_DAY_NAME" xml:space="preserve">
     <value>Current day</value>
   </data>
-  <data name="REPORT_RANGE_TYPE_CURRENT_MONT_NAME" xml:space="preserve">
+  <data name="REPORT_RANGE_TYPE_CURRENT_MONTH_NAME" xml:space="preserve">
     <value>Current month</value>
   </data>
   <data name="REPORT_RANGE_TYPE_CURRENT_WEEK_NAME" xml:space="preserve">
