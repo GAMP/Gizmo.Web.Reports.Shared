@@ -15,14 +15,17 @@ namespace Gizmo.Web.Reports.Services
         /// </summary>
         /// <param name="businessOptions">Business options.</param>
         /// <param name="logger">Logger.</param>
-        public ReportRangeService(IOptionsMonitor<BusinessOptions> businessOptions, ILogger<ReportRangeService> logger)
+        /// <param name="timeProvider">Time provider.</param>
+        public ReportRangeService(IOptionsMonitor<BusinessOptions> businessOptions, ILogger<ReportRangeService> logger, TimeProvider timeProvider)
         {
             _businessOptions = businessOptions;
             _logger = logger;
+            _timeProvider = timeProvider;
         }
 
         private readonly IOptionsMonitor<BusinessOptions> _businessOptions;
         private readonly ILogger<ReportRangeService> _logger;
+        private readonly TimeProvider _timeProvider;
 
         private ILogger Logger => _logger;
 
@@ -49,7 +52,7 @@ namespace Gizmo.Web.Reports.Services
                 Logger.LogWarning("Invalid business day end value : {dayTime} specified.", _businessOptions.CurrentValue.BusinessDayEnd);
 
             //create a starting point date , use provider value or current time as base
-            var dateOnlyStart = DateOnly.FromDateTime(startDate ?? DateTime.Now);
+            var dateOnlyStart = DateOnly.FromDateTime(startDate ?? _timeProvider.GetLocalNow().DateTime);
 
             switch (rangeType)
             {
