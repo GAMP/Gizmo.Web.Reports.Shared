@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Direct pin lifts the vulnerable transitive MessagePack floor (NU1902). -->
+    <PackageReference Include="MessagePack" Version="2.5.303" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Resources\Resources.Designer.cs">
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
